@@ -27,6 +27,5 @@ https://strnd.onrender.com/cron
 https://strnd.onrender.com/api
 ```
 
-## keepalive
 
 

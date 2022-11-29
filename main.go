@@ -17,7 +17,7 @@ func main() {
 
 	app.Static("/", "./web")
 
-	app.Get("/keepalive", func(c *fiber.Ctx) error {
+	app.Get("/healthz", func(c *fiber.Ctx) error {
 		return c.SendString("ok")
 	})
 
