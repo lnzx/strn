@@ -2,7 +2,6 @@ package api
 
 import (
 	"fmt"
-	"github.com/PuerkitoBio/goquery"
 	"io"
 	"log"
 	"math"
@@ -10,6 +9,8 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 const STRN_STATS_URL = "https://orchestrator.strn.pl/stats"
@@ -237,10 +238,7 @@ func sortIsps(m map[string]int) []*Isp {
 	}
 
 	sort.Slice(s, func(i, j int) bool {
-		if s[i].Count > s[j].Count {
-			return true
-		}
-		return false
+		return s[i].Count > s[j].Count
 	})
 
 	return s
@@ -256,10 +254,7 @@ func sortRegions(m map[string]int) []*Region {
 	}
 
 	sort.Slice(s, func(i, j int) bool {
-		if s[i].Count > s[j].Count {
-			return true
-		}
-		return false
+		return s[i].Count > s[j].Count
 	})
 
 	return s
