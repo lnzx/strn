@@ -6,4 +6,4 @@ dist-ssr
 .vscode
 .idea
 web/dist
-.exe
+*.exe
