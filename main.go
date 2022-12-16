@@ -15,7 +15,7 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 
-	app.Static("/", "./web")
+	app.Static("/", "./web/dist")
 
 	app.Get("/healthz", func(c *fiber.Ctx) error {
 		return c.SendString("ok")
