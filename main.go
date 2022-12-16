@@ -45,7 +45,7 @@ func main() {
 
 	// fix vue history router
 	app.Use(func(c *fiber.Ctx) error {
-		return c.Status(fiber.StatusFound).SendFile("./web/index.html")
+		return c.Status(fiber.StatusFound).SendFile("./web/dist/index.html")
 	})
 
 	log.Fatal(app.Listen(":" + port))
