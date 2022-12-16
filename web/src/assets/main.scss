@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+@import "../../node_modules/bulma/bulma";
+
+body, html {
+    height: 100%;
+}
+
+.table thead td, .table thead th {
+    border-width: 0;
+    color: #363636;
+}
+
+.table td, .table th {
+    border-bottom: 1px solid #ebedf1;
+}
+
+.active {
+    background-color: lightgreen;
+  }
+
+  .down {
+    background-color: tomato;
+  }
+  
+  .draining {
+    background-color: palegoldenrod;
+  }
+  
+  .inactive {
+    background-color: skyblue;
+  }
+
+  .active, .inactive, .draining, .down {
+    width: 20px;
+    height: 20px;
+  }

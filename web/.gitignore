@@ -4,5 +4,3 @@ dist
 dist-ssr
 *.local
 .vscode
-.idea
-web/dist
