@@ -7,14 +7,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
 const props = defineProps({
     data: Array
 })
 
-const data = ref(props.data)
-const len = data.value.length
+const data = props.data
+const len = data.length
 const height = len * 25
 
 const options = {
@@ -42,8 +40,12 @@ const series = [{
 }]
 
 for (let i = 0; i < len; i++) {
-    const e = data.value[i];
-    options.xaxis.categories.push(e.name)
+    const e = data[i];
+    let name = e.name
+    if(!e.name){
+        name = '-'
+    }
+    options.xaxis.categories.push(name)
     series[0].data.push(e.count)
 }
 
