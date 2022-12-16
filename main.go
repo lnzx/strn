@@ -38,15 +38,18 @@ func main() {
 		return c.JSON(data)
 	})
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
 	// fix vue history router
 	app.Use(func(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusFound).SendFile("./web/dist/index.html")
 	})
 
-	log.Fatal(app.Listen(":" + port))
+	port := os.Getenv("PORT")
+	if port == "443" {
+		log.Fatal(app.ListenTLS(":"+port, "./cert.pem", "./pem.key"))
+	} else {
+		if port == "" {
+			port = "8080"
+		}
+		log.Fatal(app.Listen(":" + port))
+	}
 }

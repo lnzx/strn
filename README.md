@@ -1,31 +1,24 @@
 # strn
 
-Deploy on render.com
-
 ## 环境变量
 `DATABASE_URL`
 
-`PORT` default: 8080
+`PORT` default: 8080, 443 need a cert `cert.pem` `pem.key`
 
-# web
-```shell
-github.com/lnzx/strn-web
-```
-
-## keepalive
-15分钟请求一次，保持活动
+## 
 
 ## cron
-定时抓取数据分析,15分钟请求一次，保持活动
+定时抓取数据分析,15分钟请求一次
 ```shell
-https://strnd.onrender.com/cron
+https://strn.app/cron
 ```
 
 ## api
 查询官网节点
 ```shell
-https://strnd.onrender.com/api
+https://strn.app/api
 ```
+
 
 
 
