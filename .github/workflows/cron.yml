@@ -7,6 +7,6 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - name: Call our API route
+      - name: Call Cron Task
         run: |
-          curl -s https://strn.app/cron
+          curl -s https://strn.app/api?cron=1

@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -20,10 +21,30 @@ import (
 const STRN_STATS_URL = "https://orchestrator.strn.pl/stats"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello from API!</h1>")
+	if r.URL.Query().Get("cron") == "1" {
+		if err := cron(); err != nil {
+			w.Write([]byte(err.Error()))
+		} else {
+			w.Write([]byte("ok"))
+		}
+	} else {
+		w.Header().Set("content-type", "text/json")
+
+		data, err := getData()
+		if err != nil {
+			w.Write([]byte(err.Error()))
+		} else {
+			bytes, err := json.Marshal(data)
+			if err != nil {
+				w.Write([]byte(err.Error()))
+			} else {
+				w.Write(bytes)
+			}
+		}
+	}
 }
 
-func GetData() (data *Data, err error) {
+func getData() (data *Data, err error) {
 	doc, err := GetHtml(STRN_STATS_URL)
 	if err != nil {
 		return nil, err
@@ -73,7 +94,7 @@ func GetData() (data *Data, err error) {
 	}, nil
 }
 
-func Start() error {
+func cron() error {
 	doc, err := GetHtml(STRN_STATS_URL)
 	if err != nil {
 		return err
