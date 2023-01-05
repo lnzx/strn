@@ -5,10 +5,12 @@
 ## 环境变量
 `DATABASE_URL`
 
+postgres://postgres:PASSWORD@IP:5432/postgres?sslmode=disable
+
 ## cron
 定时抓取数据分析,15分钟请求一次
 ```shell
-https://strn.app/cron
+https://strn.app/api?cron=1
 ```
 
 ## api
