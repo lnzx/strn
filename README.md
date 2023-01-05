@@ -1,11 +1,9 @@
 # strn
 
+部署在vercel的saturn节点查询工具
+
 ## 环境变量
 `DATABASE_URL`
-
-`PORT` default: 8080, 443 need a cert `cert.pem` `pem.key`
-
-## 
 
 ## cron
 定时抓取数据分析,15分钟请求一次
@@ -19,6 +17,11 @@ https://strn.app/cron
 https://strn.app/api
 ```
 
+## 可选
+api 接口
+```
+VITE_API_BASE_URL
+```
 
 
 

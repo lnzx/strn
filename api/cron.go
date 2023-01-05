@@ -1,4 +1,4 @@
-package cron
+package handler
 
 import (
 	"context"
@@ -6,7 +6,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
-	. "github.com/lnzx/strn/api"
 	"log"
 	"os"
 )

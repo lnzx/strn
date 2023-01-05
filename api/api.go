@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"fmt"
@@ -14,6 +14,10 @@ import (
 )
 
 const STRN_STATS_URL = "https://orchestrator.strn.pl/stats"
+
+func Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>Hello from API!</h1>")
+}
 
 func GetData() (data *Data, err error) {
 	doc, err := GetHtml(STRN_STATS_URL)
